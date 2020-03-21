@@ -34,8 +34,12 @@ const config = {
   },
 
   output: {
-    chunkFilename: isProduction ? '[name].[chunkhash:8].js' : '[name].js',
-    filename: isProduction ? '[name].[chunkhash:8].js' : '[name].js',
+    chunkFilename: isProduction
+      ? 'build/[name].[chunkhash:8].js'
+      : 'build/[name].js',
+    filename: isProduction
+      ? 'build/[name].[chunkhash:8].js'
+      : 'build/[name].js',
     path: path.resolve('./dist'),
     publicPath: '/',
   },
@@ -69,8 +73,12 @@ const config = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      chunkFilename: isProduction ? '[name].[chunkhash:8].css' : '[name].css',
-      filename: isProduction ? '[name].[chunkhash:8].css' : '[name].css',
+      chunkFilename: isProduction
+        ? 'build/[name].[chunkhash:8].css'
+        : 'build/[name].css',
+      filename: isProduction
+        ? 'build/[name].[chunkhash:8].css'
+        : 'build/[name].css',
     }),
     new LoadablePlugin({ outputAsset: false }),
     new HtmlRendererWebpackPlugin({
