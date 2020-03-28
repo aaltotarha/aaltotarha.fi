@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const path = require('path')
 const TerserJSPlugin = require('terser-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -124,6 +125,11 @@ if (isProduction) {
       },
     }),
     new OptimizeCSSAssetsPlugin({}),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      openAnalyzer: false,
+    }),
   ]
 }
 

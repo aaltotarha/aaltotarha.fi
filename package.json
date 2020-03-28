@@ -20,6 +20,7 @@
     "start": "NODE_ENV=development BABEL_ENV=node_development webpack-dev-server",
     "prebuild": "rimraf dist",
     "build": "NODE_ENV=production BABEL_ENV=node_production webpack",
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
     "lint": "eslint .",
     "check": "npm run lint"
   },
@@ -80,6 +81,7 @@
     "standard-version": "^7.1.0",
     "terser-webpack-plugin": "2.3.5",
     "webpack": "^4.42.0",
+    "webpack-bundle-analyzer": "3.6.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
