@@ -1,5 +1,5 @@
 import { loadableReady } from '@loadable/component'
-import { hydrate } from 'react-dom'
+import ReactDOM from 'react-dom'
 import React from 'react'
 
 import App from './App'
@@ -8,7 +8,8 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 const root = document.getElementById('root')
 
-const renderReact = elem => new Promise(r => hydrate(elem, root, r))
+const renderReact = elem =>
+  ReactDOM.createRoot(root, { hydrate: true }).render(elem)
 
 const boot = async () => {
   await loadableReady()
