@@ -8,19 +8,18 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 const root = document.getElementById('root')
 
-const renderReact = (elem) =>
-  ReactDOM.createRoot(root, { hydrate: true }).render(elem)
+const renderReact = (elem) => ReactDOM.createRoot(root, { hydrate: true }).render(elem)
 
 const boot = async () => {
-  await loadableReady()
-  await renderReact(<App />)
+    await loadableReady()
+    await renderReact(<App />)
 }
 
 boot()
 
 if (!isProduction && module.hot) {
-  module.hot.accept('./App', async () => {
-    const { default: NextApp } = await import('./App')
-    await renderReact(<NextApp />)
-  })
+    module.hot.accept('./App', async () => {
+        const { default: NextApp } = await import('./App')
+        await renderReact(<NextApp />)
+    })
 }

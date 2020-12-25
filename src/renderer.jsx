@@ -6,18 +6,16 @@ const whitespaceRegExp = /^\s+/gm
 const emptyLineRegExp = /^\s*$(?:\r\n?|\n)/gm
 
 const renderer = async ({ path, stats }) => {
-  const { default: App } = await import('./App')
+    const { default: App } = await import('./App')
 
-  const extractor = new ChunkExtractor({ entrypoints: ['client'], stats })
-  const jsx = extractor.collectChunks(<App />)
+    const extractor = new ChunkExtractor({ entrypoints: ['client'], stats })
+    const jsx = extractor.collectChunks(<App />)
 
-  const html = renderToString(jsx)
-  const styleTags = extractor.getStyleTags()
-  const scriptTags = extractor
-    .getScriptTags({ type: 'module' })
-    .replace(/async/gm, 'defer')
+    const html = renderToString(jsx)
+    const styleTags = extractor.getStyleTags()
+    const scriptTags = extractor.getScriptTags({ type: 'module' }).replace(/async/gm, 'defer')
 
-  return `
+    return `
     <!DOCTYPE html>
     <html lang="fi">
       <head>
@@ -33,8 +31,8 @@ const renderer = async ({ path, stats }) => {
       </body>
     </html>
   `
-    .replace(whitespaceRegExp, '')
-    .replace(emptyLineRegExp, '')
+        .replace(whitespaceRegExp, '')
+        .replace(emptyLineRegExp, '')
 }
 
 export default renderer
