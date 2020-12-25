@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 const root = document.getElementById('root')
 
-const renderReact = elem =>
+const renderReact = (elem) =>
   ReactDOM.createRoot(root, { hydrate: true }).render(elem)
 
 const boot = async () => {

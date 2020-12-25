@@ -5,7 +5,7 @@ const plugins = [
   '@loadable/babel-plugin',
 ]
 
-module.exports = api => {
+module.exports = (api) => {
   const env = api.env()
 
   if (env.startsWith('node')) {
