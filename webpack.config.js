@@ -1,9 +1,7 @@
 require('@babel/register')
 
 const LoadablePlugin = require('@loadable/webpack-plugin')
-const {
-  default: HtmlRendererWebpackPlugin,
-} = require('html-renderer-webpack-plugin')
+const HtmlRendererWebpackPlugin = require('html-renderer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const path = require('path')
