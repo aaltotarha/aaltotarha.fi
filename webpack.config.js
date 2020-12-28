@@ -95,7 +95,6 @@ if (isProduction) {
     config.optimization.minimizer = [
         new TerserJSPlugin({
             extractComments: false,
-            sourceMap: true,
             terserOptions: {
                 compress: {
                     arguments: true,
